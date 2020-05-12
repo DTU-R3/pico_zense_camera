@@ -52,10 +52,6 @@ find_package(OpenCV REQUIRED)
 find_library(libpicozense_api NAMES libpicozense_api_x64_ubuntu_16.04.so PATHS src/pico_zense_camera/lib/)
 include_directories(include include/pico_zense_camera ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 
-add_executable(FrameViewer src/pico_zense_camera/FrameViewer.cpp)
-target_link_libraries(FrameViewer ${catkin_LIBRARIES} ${libpicozense_api} ${OpenCV_LIBRARIES})
-add_dependencies(FrameViewer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
 add_executable(pico_zense_camera src/pico_zense_camera/pico_zense_driver.cpp
                                  src/pico_zense_camera/pico_zense_manager.cpp
                                  include/pico_zense_camera/pico_zense_manager.hpp)
